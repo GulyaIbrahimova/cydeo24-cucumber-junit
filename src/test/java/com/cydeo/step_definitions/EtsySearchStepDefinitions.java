@@ -40,4 +40,12 @@ public class EtsySearchStepDefinitions {
         Assert.assertTrue(driver.getTitle().contains("Wooden spoon"));
     }
 
+    @When("User searches for empty value")
+    public void userSearchesForEmptyValue() {
+        
+    }
+
+    @Then("All categories should be displayed")
+    public void allCategoriesShouldBeDisplayed() {
+    }
 }
