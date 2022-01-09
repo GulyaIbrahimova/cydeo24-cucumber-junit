@@ -21,11 +21,19 @@ public class EtsyHomePage {
     @FindBy(xpath = "//button[@value='Search']")
     public WebElement searchButton;
 
+
+
+    /**
+     accepts a String and searches for it on Etsy
+     * @param item
+     searchFor(Iphone case
+     */
+
     public void searchFor(String item){
         etsySearchField.clear();
         etsySearchField.sendKeys(item);
         searchButton.click();
-        Assert.assertEquals("Etsy - Shop for handmade, vintage, custom, and unique gifts for everyone", driver.getTitle());
+
     }
 
 

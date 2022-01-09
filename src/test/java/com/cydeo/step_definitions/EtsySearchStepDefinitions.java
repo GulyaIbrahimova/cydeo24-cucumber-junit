@@ -1,11 +1,16 @@
 package com.cydeo.step_definitions;
 
+import com.cydeo.pages.EtsyAllCategoriesPage;
 import com.cydeo.pages.EtsyHomePage;
 import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
+
 import io.cucumber.java.en.*;
+import org.bouncycastle.util.Strings;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class EtsySearchStepDefinitions {
     WebDriver driver;
@@ -30,6 +35,7 @@ public class EtsySearchStepDefinitions {
         homePage.searchFor("wooden spoon");
 
 
+
     }
     @Then("Page title should start with wooden spoon")
     public void page_title_should_start_with_wooden_spoon() {
@@ -42,10 +48,24 @@ public class EtsySearchStepDefinitions {
 
     @When("User searches for empty value")
     public void userSearchesForEmptyValue() {
-        
+        EtsyHomePage homePage = new EtsyHomePage();
+        homePage.searchFor("");
     }
+
 
     @Then("All categories should be displayed")
     public void allCategoriesShouldBeDisplayed() {
+
+        //wait for title to change to all categories
+
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(ExpectedConditions.titleIs("All categories | Etsy"));
+
+        Assert.assertEquals("All categories | Etsy", driver.getTitle());
+
+        EtsyAllCategoriesPage allCategoriesPage = new EtsyAllCategoriesPage();
+        Assert.assertTrue(allCategoriesPage.allCategoriesHeader.isDisplayed());
+
     }
+
 }

@@ -1,0 +1,36 @@
+
+//todo take notes
+***Cucumber works really well with Ruby(programming language)***
+
+==============================================================
+
+Practice:
+
+lyft.fare.estimate.url=https://www.lyft.com/rider/fare-estimate
+
+Feature file:
+    lyft_fare_estimate.feature
+
+Feature: Searching Lyft fare details
+
+    As a rider , I should be able to enter pickup and drop off locations so that I can see the estimated fare
+
+
+Scenario: Fare estimate using City
+    Given User is on lyft fare estimate page
+    When User enters "Mclean, VA" to pickup address
+    And User enters "Woodbridge, VA" to drop address
+    And User clicks on get estimate button
+    Then User should see estimated prices
+
+=================================
+
+Passing parameters from feature file:
+Let's look at this step below, it has city name within double quotes:
+When User enters "Maclean, VA" When we generate a step for above step, Cucumber will look at "" as a String parameter. So to match it, we need to write
+
+
+
+
+
+

@@ -47,7 +47,7 @@ Difference between Assert and Verify in automation?
 
 Assert -> when assertion fails, test fails and stops execution at that point. We can use TestNG assertions for that
 Verify -> when verification fails, test keeps running till end, and errors are reported at the end.
-We can use TestNG soft assertions to achive that.
+We can use TestNG soft assertions to    achieve that.
 
 SoftAssert softAssert = new SoftAssert();
 softAssert.assertEquals(5, 4);
